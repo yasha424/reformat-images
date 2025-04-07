@@ -1,0 +1,28 @@
+#!/bin/bash
+
+array=("pdf|png|jpeg|jpg|heic")
+usage_message="Sample usage: \n\treformat-images {input_file_format} {output_file_format}\nFor example:\n\t reformat-images heic jpg"
+if [[ !("|${array[*]}|" =~ "|$1|") ]]; then
+  printf "Unsupported input file format.\nSupported formats are: ${array}\n${usage_message}\n"
+  exit 1
+fi
+
+if [[ !("|${array[*]}|" =~ "|$2|") ]]; then
+  printf "Unsupported output file format.\nSupported formats are: ${array}\n${usage_message}\n"
+  exit 1
+fi
+
+find . -name "*.$1" -print0 | while read -d $'\0' file
+do 
+  if [[ $file != *"AppIcon"* ]]; then 
+    magick "$file" "${file%.*}.$2" && rm "$file"
+  fi
+done
+
+find . -name "*.json" -print0 | while read -d $'\0' file
+do 
+  if [[ $file != *"AppIcon"* ]]; then 
+    sed -i -e "s/$1/$2/g" "$file"
+    rm "$file-e"
+  fi
+done
