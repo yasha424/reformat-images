@@ -17,6 +17,8 @@ After intsallation open new terminal window and you are ready to go
 ## Usage:
 ### Enter project directory in terminal then write:
 ```console
-reformat-images png heic
+reformat-images {input_file_format} {output_file_format}
 ```
-*AppIcon is untouched
+Supported file formats for converting images are:
+##### **pdf**, **png**, **jpeg**, **jpg** and **heic**
+##### *AppIcon is left untouched
