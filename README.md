@@ -1,6 +1,7 @@
 # reformat-images
-Simple tool (designed for XCode projects) for converting all images with specified format to another format
+Simple tool for macOS (primarily designed for XCode projects) for converting all images with specified format to another format
 ## Dependencies:
+For converting images imagemagick is used. You can install it using brew:
 ```console
 brew install imagemagick
 ```
