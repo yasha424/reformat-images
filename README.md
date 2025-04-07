@@ -22,3 +22,7 @@ reformat-images {input_file_format} {output_file_format}
 Supported file formats for converting images are:
 ##### **pdf**, **png**, **jpeg**, **jpg** and **heic**
 ##### *AppIcon is left untouched
+## Background
+When xcode generates Assets.car - heic image format takes up to 5 times less space than jpeg and up to 10 time less space than png.\
+So of your images are using one of those formats try converting them to heic to reduce your app size.\
+Note that if your image is vector based (pdf or svg) you should not convert it to heic, because it will drastically reduce image quality.
